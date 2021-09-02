@@ -45,7 +45,10 @@ library(moderndive)
 The following uses the function `read_csv()` to read a `*.CSV` file of the data from where it is published on the web.
 
 ```{r}
-trump <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT8qHdvTPaRc62hU94ShBcSh04HP3c11b6XZIPMiUDGuwPtifpP7QhHdSHS2YgTRMRTgfUmBYq-L3ZT/pub?gid=1217616678&single=true&output=csv")
+url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8qHdvTPaRc62hU94ShBcSh04HP3c11b6XZIPMiUDGuwPtifpP7QhHdSHS2YgTRMRTgfUmBYq-L3ZT/pub?gid=1217616678&single=true&output=csv"
+if(!file.exists("./trump.csv")){
+    download.file(url, destfile = "./trump.csv")}
+trump <- read_csv("./trump.csv")
 ```
 
 Take a moment to look at the data in the viewer or by using `glimpse()`. 
@@ -256,7 +259,7 @@ Use the same `trump` data set for the following questions:
 ```
 
 
-6. Do you expect the correlation coefficient (for `non_white` and `trump_support`) to be positive or negative? Write code chunk testing your prediction (it is OK if your expectation was wrong!). 
+6. Do you expect the correlation coefficient (for `non_white` and `trump_support`) to be positive or negative? Write a code chunk testing your prediction (it is OK if your expectation was wrong!). 
 
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
