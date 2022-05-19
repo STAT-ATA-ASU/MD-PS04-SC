@@ -2,7 +2,7 @@
 ---
 title: "Problem Set 04: Linear Regression"
 author: "Your Name Goes Here"
-date: 'Last compiled: `r format(Sys.time(), "%B %d, %Y")`'
+date: 'Last compiled: `r format(Sys.time(), "%B %d, %Y at %X")`'
 output:
   bookdown::html_document2:
     theme: lumen
