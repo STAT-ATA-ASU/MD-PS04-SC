@@ -46,9 +46,12 @@ The following uses the function `read_csv()` to read a `*.CSV` file of the data 
 
 ```{r}
 url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8qHdvTPaRc62hU94ShBcSh04HP3c11b6XZIPMiUDGuwPtifpP7QhHdSHS2YgTRMRTgfUmBYq-L3ZT/pub?gid=1217616678&single=true&output=csv"
-if(!file.exists("./trump.csv")){
-    download.file(url, destfile = "./trump.csv")}
-trump <- read_csv("./trump.csv")
+if(!dir.exists("./data/")){
+  dir.create("./data/")
+}
+if(!file.exists("./data/trump.csv")){
+    download.file(url, destfile = "./data/trump.csv")}
+trump <- read_csv("./data/trump.csv")
 ```
 
 Take a moment to look at the data in the viewer or by using `glimpse()`. 
@@ -84,7 +87,8 @@ ggplot(data = trump, aes(y = trump_support, x = poverty)) +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Percentage of white households in poverty", 
        y = "Percentage of voters supporting Trump", 
-       title = "White poverty and Trump support in the US") 
+       title = "White poverty and Trump support in the US") +
+  theme_bw()
 ```
 
 
@@ -95,8 +99,7 @@ ggplot(data = trump, aes(y = trump_support, x = poverty)) +
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
-
++   
 
 </div> 
 
@@ -145,7 +148,7 @@ We can interpret the `intercept` and `poverty` slope like so:
 * When the poverty level is 0, the predicted average Trump support is 30.81%
 * For every increase in poverty level of 1 percentage point, there is an **associated increase** in Trump support of 2.059 percentage points. 
 
-Revisiting the plot from earlier, we can see that the best-fit line hits the y axis at 30.8064 (if we extend it). This is the intercept...the y value at which poverty = 0 (note, a value that is sadly not close to the range of values for "percentage of white households in poverty"). 
+Revisiting the plot from earlier, we can see that the best-fit line hits the y axis at 30.8064 (if we extend it). This is the intercept...the y value at which poverty = 0 (note, a value that is not close to the range of values for "percentage of white households in poverty"). 
 
 ```{r fig.height=3, fig.width=5, echo = FALSE}
 ggplot(data = trump, aes(y = trump_support, x = poverty))+ 
@@ -155,7 +158,8 @@ ggplot(data = trump, aes(y = trump_support, x = poverty))+
        y = "Percentage of voters supporting Trump", 
        title = "White poverty and Trump support in the US") + 
   geom_abline(slope = 2.0591, intercept = 30.8064, col = "black", lwd = 0.5) +
-  geom_smooth(method = "lm", se = FALSE, col = "red", lwd = 2 ) 
+  geom_smooth(method = "lm", se = FALSE, col = "red", lwd = 2 ) +
+  theme_bw()
 ```
 
 
@@ -164,7 +168,7 @@ ggplot(data = trump, aes(y = trump_support, x = poverty))+
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++ 
 
 </div> 
 
@@ -174,7 +178,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 Based on the R output of our model, the following is our least squares regression line for the linear model: 
 
-$\widehat{trump\_support} = 30.806 + 2.059 \times poverty$
+$$\widehat{\text{trump_support}} = `r round(coef(poverty_mod)[1],4)` + `r round(coef(poverty_mod)[2],4)` \times \text{poverty}$$
 
 We can use the line from our graph of the `trump_support` versus `poverty` relationship to **visually** make predictions...for instance at 15% white poverty, the line shows a value of just over 60% Trump support. 
 
@@ -198,7 +202,7 @@ y_hat
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++
 
 </div> 
 
@@ -208,7 +212,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++   
 
 </div> 
 
@@ -226,11 +230,12 @@ For instance, below, one data point is highlighted in blue...the residual is the
 ggplot(data = trump, aes(y = trump_support, x = poverty))+ 
   geom_point() +  
   geom_segment(x = 14, y = 69, xend = 14, yend = 59.634, col = "blue") + 
-  geom_point(data=subset(trump, trump_support == 69),colour="blue",size=5) + 
+  geom_point(data=subset(trump, trump_support == 69), colour = "blue", size = 4) + 
   labs(x = "Percentage of white households in poverty", 
        y = "Percentage of voters supporting Trump", 
        title = "White poverty and Trump support in the US") + 
-  geom_smooth(method = "lm", se = FALSE, col = "red", lwd = 2 ) 
+  geom_smooth(method = "lm", se = FALSE, col = "red", lwd = 2) +
+  theme_bw()
 ```
 
 The function `get_regression_points()` provides the **fitted** also known as **predicted** value for every data point, and the **residual** for every data point. The first row in the output is the first data point...you see that Trump support was 30%, white poverty was 7%, the regression equation predicted 45.22% Trump support, and the residual was $-15.22 = (30 - 45.22)$.
@@ -247,13 +252,10 @@ head(results)
 Use the same `trump` data set for the following questions:
 
 
-5. Generate a scatterplot with a best-fitting line with `non_white` as the explanatory variable, and `trump_support` as the response. Be sure to include an informative title and axis labels for your plot. This will help contextualize it.
+5. Generate a scatterplot with a best-fitting line with `non_white` as the explanatory variable, and `trump_support` as the response. Be sure to include an informative title and axis labels for your plot. This will help contextualize the plot.
 
 ```{r}
 # Type your code and comments inside the code chunk
-
-
-
 
 
 ```
@@ -264,7 +266,7 @@ Use the same `trump` data set for the following questions:
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++ 
 
 </div> 
 
@@ -284,7 +286,9 @@ Type your complete sentence answer here using inline R code and delete this comm
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
++     
 
++   
 
 </div> 
 
@@ -299,7 +303,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++   
 
 </div>
 
@@ -310,7 +314,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++
 
 </div>
 
@@ -328,7 +332,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++
 
 </div>
 
@@ -337,7 +341,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++
 
 </div>
 
@@ -346,7 +350,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++
 
 </div>
 
