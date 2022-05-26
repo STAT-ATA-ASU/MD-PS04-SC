@@ -71,7 +71,7 @@ The outcome variable `trump_support` is the percentage of votes for Trump in 201
 
 Observe that all percentages are expressed as values between 0 and 100, and not 0 and 1.
 
-***
+_________
 
 # An Example/Demo 
 
@@ -92,7 +92,7 @@ ggplot(data = trump, aes(y = trump_support, x = poverty)) +
 ```
 
 
-
+____________
 
 1. Does the relationship appear to be positive or negative? Does it look to be reasonably linear? 
 
@@ -103,7 +103,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div> 
 
-***
+_________
 
 ## The Correlation Coefficient (r)
 
@@ -114,7 +114,7 @@ trump %>%
   summarise(r = cor(trump_support, poverty))
 ```
 
-***
+__________
 
 ## Running a Linear Regression Model
 
@@ -133,7 +133,7 @@ Note that:
 
 This object `poverty_mod` contains all of the information we need about the linear model that was just fit and we'll be accessing this information again later.
 
-***
+_________
 
 ## Get the Regression Table
 
@@ -162,6 +162,7 @@ ggplot(data = trump, aes(y = trump_support, x = poverty))+
   theme_bw()
 ```
 
+___________
 
 2. We found a positive correlation coefficient. Is it reasonable for us to conclude that social policies that increase white poverty will **cause** an increase in Trump support? Explain why or why not? 
 
@@ -172,7 +173,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div> 
 
-***
+_________
 
 ## Making Predictions
 
@@ -189,6 +190,7 @@ y_hat = 30.8064 + 2.0591 * 15
 y_hat
 ```
 
+____________
 
 3. What percent of Trump support would you expect at a value of 6% white poverty?
 
@@ -356,5 +358,5 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 
 
-***
+____________
 
