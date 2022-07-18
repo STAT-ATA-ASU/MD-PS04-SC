@@ -12,6 +12,7 @@ output:
     css: MyLab.css 
 ---
 
+____________
 
 ```{r include = FALSE}
 # Do not edit this code block/chunk!
@@ -247,7 +248,7 @@ results <- get_regression_points(poverty_mod)
 head(results)
 ```
 
-***
+____________
 
 ## Put your Skills to Practice Independently! 
 
@@ -262,6 +263,7 @@ Use the same `trump` data set for the following questions:
 
 ```
 
+____________
 
 6. Do you expect the correlation coefficient (for `non_white` and `trump_support`) to be positive or negative? Write a code chunk testing your prediction (it is OK if your expectation was wrong!). 
 
@@ -277,6 +279,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 ```
 
+____________
 
 7. Run a linear regression using `non_white` as the **explanatory** variable, and `trump_support` as the **outcome** variable.  Store your linear model in the object `nw_mod`.  Use the `get_regression_table()` function on `nw_mod` and interpret the intercept and slope estimates. 
 
@@ -294,6 +297,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div> 
 
+____________
 
 8. Make a numerical prediction for the level of trump support for a region that has 70% of humans that identify as a person of color. In other words, use **math** not a visual prediction.
 
@@ -309,7 +313,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div>
 
-
+____________
 
 9. Based on the evidence you have so far (scatterplots and correlation coefficients), which of the explanatory variables we have considered (`non_white` or `poverty`) seems to be a better explanatory variable of Trump support? Explain. 
 
@@ -320,6 +324,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div>
 
+____________
 
 10. If Representative Ocasio-Cortez saw the regression line (`nw_mod`) and not the actual data:
 
