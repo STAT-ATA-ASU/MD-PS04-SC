@@ -80,8 +80,8 @@ We'll do this by creating a scatterplot with `trump_support` as the outcome vari
 ```{r}
 #| label: "fig-TSG"
 #| fig-cap: "Percentage of voters supporting Trump versus the percentage of white households in poverty."
-#| fig-width: 4
-#| fig-height: 3
+#| fig-width: 5
+#| fig-height: 4
 ggplot(data = trump, aes(y = trump_support, x = poverty)) + 
   geom_point() + 
   geom_smooth(method = "lm", se = FALSE) +
@@ -151,10 +151,10 @@ We can interpret the `intercept` and `poverty` slope like so:
 -   When the poverty level is 0, the predicted average Trump support is `r round(coef(poverty_mod)[1],2)`%.
 -   For every increase in poverty level of 1 percentage point, there is an **associated increase** in Trump support of `r round(coef(poverty_mod)[2],2)` percentage points.
 
-Revisiting the @fig-TSG, we can see that the best-fit line hits the y axis at `r round(coef(poverty_mod)[1],2)` (if we extend it). This is the intercept...the y value at which poverty = 0 (note, a value that is not close to the range of values for "percentage of white households in poverty").
+Revisiting @fig-TSG in @fig-ts, we can see that the best-fit line hits the y axis at `r round(coef(poverty_mod)[1],2)` (if we extend it). This is the intercept...the y value at which poverty = 0 (note, a value that is not close to the range of values for "percentage of white households in poverty").
 
 ```{r}
-#| fig-height: 3
+#| fig-height: 4
 #| fig-width: 5
 #| echo: false
 #| label: fig-ts
@@ -228,8 +228,8 @@ $$\text{residual} = y - \hat{y}$$
 For instance, below, one data point is highlighted in blue...the residual is the difference between the y value of the **data point** (here 69), and the y value **predicted** by the line (roughly 59). Here the residual is roughly 10 ($69 - 59 = 10$). The regression equation has under-estimated Trump support, compared to this data point.
 
 ```{r}
-#| fig-height: 2.5
-#| fig-width: 4
+#| fig-height: 4
+#| fig-width: 5
 #| echo: false
 ggplot(data = trump, aes(y = trump_support, x = poverty))+ 
   geom_point() +  
