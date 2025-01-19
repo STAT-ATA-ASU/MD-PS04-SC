@@ -100,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified on August 24, 2024 10:22:37 Eastern Daylight Time</p>
+      <p class="date">Last modified on January 19, 2025 11:22:45 Eastern Standard Time</p>
     </div>
   </div>
   
@@ -413,6 +413,40 @@ R Code
 </tbody>
 </table>
 </div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>poverty_mod <span class="sc">|&gt;</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">30.806367</td>
+<td style="text-align: right;">5.2230395</td>
+<td style="text-align: right;">5.898168</td>
+<td style="text-align: right;">4.00e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">poverty</td>
+<td style="text-align: right;">2.059089</td>
+<td style="text-align: right;">0.5453428</td>
+<td style="text-align: right;">3.775769</td>
+<td style="text-align: right;">4.56e-04</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -481,13 +515,13 @@ R Code
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>y_hat <span class="ot">=</span> <span class="fl">30.8064</span> <span class="sc">+</span> <span class="fl">2.0591</span> <span class="sc">*</span> <span class="dv">15</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>y_hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>y_hat <span class="ot">=</span> <span class="fl">30.8064</span> <span class="sc">+</span> <span class="fl">2.0591</span> <span class="sc">*</span> <span class="dv">15</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>y_hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 61.6929</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or better yet</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(poverty_mod, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">poverty =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or better yet</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(poverty_mod, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">poverty =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       1 
 61.69269 </code></pre>
@@ -521,7 +555,7 @@ Problem 3 Answers
 <div id="callout-13" class="callout-13-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Delete this and put your text answer here.</li>
@@ -587,8 +621,8 @@ R Code
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">get_regression_points</span>(poverty_mod)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">get_regression_points</span>(poverty_mod)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead>
@@ -679,7 +713,7 @@ Problem 5 Answers
 <div id="callout-18" class="callout-18-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -713,7 +747,7 @@ Problem 6 Answers
 <li>Delete this and put your text answer here.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -744,7 +778,7 @@ Problem 7 Answers
 <div id="callout-22" class="callout-22-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Delete this and put your text answer here.</p></li>
@@ -779,7 +813,7 @@ Problem 8 Answers
 <div id="callout-24" class="callout-24-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Delete this and put your text answer here.</li>
@@ -813,7 +847,7 @@ Problem 9 Answers
 <div id="callout-26" class="callout-26-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Delete this and put your text answer here.</li>
@@ -850,11 +884,11 @@ Problem 10 Answers
 <div id="callout-28" class="callout-28-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>A.</strong> Delete this and put your text answer here.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>B.</strong> Delete this and put your text answer here.</p>
 <p><strong>C.</strong> Delete this and put your text answer here.</p>
@@ -906,11 +940,11 @@ Tip
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.4.1 (2024-06-14)
+<pre><code>R version 4.4.2 (2024-10-31)
 Platform: x86_64-redhat-linux-gnu
-Running under: Red Hat Enterprise Linux 9.4 (Plow)
+Running under: Red Hat Enterprise Linux 9.5 (Plow)
 
 Matrix products: default
 BLAS/LAPACK: FlexiBLAS OPENBLAS-OPENMP;  LAPACK version 3.9.0
@@ -930,30 +964,40 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] moderndive_0.6.1 readr_2.1.5      ggplot2_3.5.1    dplyr_1.1.4     
-[5] knitr_1.48      
+ [1] yardstick_1.3.1    workflowsets_1.1.0 workflows_1.1.4    tune_1.2.1        
+ [5] tidyr_1.3.1        tibble_3.2.1       rsample_1.2.1      recipes_1.1.0     
+ [9] purrr_1.0.2        parsnip_1.2.1      modeldata_1.4.0    infer_1.0.7       
+[13] dials_1.3.0        scales_1.3.0       broom_1.0.7        tidymodels_1.2.0  
+[17] moderndive_0.7.0   readr_2.1.5        ggplot2_3.5.1      dplyr_1.1.4       
+[21] knitr_1.49        
 
 loaded via a namespace (and not attached):
- [1] utf8_1.2.4           generics_0.1.3       tidyr_1.3.1         
- [4] lattice_0.22-6       stringi_1.8.4        hms_1.1.3           
- [7] digest_0.6.36        magrittr_2.0.3       evaluate_0.24.0     
-[10] grid_4.4.1           timechange_0.3.0     fastmap_1.2.0       
-[13] Matrix_1.7-0         operator.tools_1.6.3 jsonlite_1.8.8      
-[16] backports_1.5.0      mgcv_1.9-1           purrr_1.0.2         
-[19] fansi_1.0.6          scales_1.3.0         infer_1.0.7         
-[22] cli_3.6.3            rlang_1.1.4          crayon_1.5.3        
-[25] splines_4.4.1        bit64_4.0.5          munsell_0.5.1       
-[28] withr_3.0.1          yaml_2.3.10          tools_4.4.1         
-[31] parallel_4.4.1       tzdb_0.4.0           colorspace_2.1-1    
-[34] broom_1.0.6          vctrs_0.6.5          R6_2.5.1            
-[37] lifecycle_1.0.4      lubridate_1.9.3      snakecase_0.11.1    
-[40] stringr_1.5.1        htmlwidgets_1.6.4    bit_4.0.5           
-[43] vroom_1.6.5          janitor_2.2.0        pkgconfig_2.0.3     
-[46] pillar_1.9.0         gtable_0.3.5         glue_1.7.0          
-[49] xfun_0.47            tibble_3.2.1         tidyselect_1.2.1    
-[52] rstudioapi_0.16.0    farver_2.1.2         nlme_3.1-166        
-[55] htmltools_0.5.8.1    labeling_0.4.3       rmarkdown_2.28      
-[58] formula.tools_1.7.1  compiler_4.4.1      </code></pre>
+ [1] tidyselect_1.2.1     timeDate_4041.110    farver_2.1.2        
+ [4] fastmap_1.2.0        janitor_2.2.1        digest_0.6.37       
+ [7] rpart_4.1.24         timechange_0.3.0     lifecycle_1.0.4     
+[10] survival_3.8-3       magrittr_2.0.3       compiler_4.4.2      
+[13] rlang_1.1.4          tools_4.4.2          utf8_1.2.4          
+[16] yaml_2.3.10          data.table_1.16.4    labeling_0.4.3      
+[19] htmlwidgets_1.6.4    bit_4.5.0.1          DiceDesign_1.10     
+[22] withr_3.0.2          nnet_7.3-20          grid_4.4.2          
+[25] colorspace_2.1-1     future_1.34.0        iterators_1.0.14    
+[28] globals_0.16.3       MASS_7.3-64          cli_3.6.3           
+[31] rmarkdown_2.29       crayon_1.5.3         generics_0.1.3      
+[34] rstudioapi_0.17.1    future.apply_1.11.3  tzdb_0.4.0          
+[37] stringr_1.5.1        operator.tools_1.6.3 splines_4.4.2       
+[40] parallel_4.4.2       vctrs_0.6.5          hardhat_1.4.0       
+[43] Matrix_1.7-1         jsonlite_1.8.9       hms_1.1.3           
+[46] bit64_4.5.2          listenv_0.9.1        foreach_1.5.2       
+[49] gower_1.0.2          glue_1.8.0           parallelly_1.41.0   
+[52] codetools_0.2-20     lubridate_1.9.4      stringi_1.8.4       
+[55] gtable_0.3.6         GPfit_1.0-8          munsell_0.5.1       
+[58] furrr_0.3.1          pillar_1.10.1        htmltools_0.5.8.1   
+[61] ipred_0.9-15         lava_1.8.0           R6_2.5.1            
+[64] lhs_1.2.0            formula.tools_1.7.1  vroom_1.6.5         
+[67] evaluate_1.0.3       lattice_0.22-6       backports_1.5.0     
+[70] snakecase_0.11.1     class_7.3-23         Rcpp_1.0.13-1       
+[73] nlme_3.1-166         prodlim_2024.06.25   mgcv_1.9-1          
+[76] xfun_0.50            pkgconfig_2.0.3     </code></pre>
 </div>
 </div>
 </section>

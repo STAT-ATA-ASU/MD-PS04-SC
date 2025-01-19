@@ -143,6 +143,11 @@ get_regression_table(poverty_mod)
 kable(get_regression_table(poverty_mod))
 # I prefer
 kable(summary(poverty_mod)$coef)
+# Or
+library(tidymodels)
+poverty_mod |> 
+  tidy() |> 
+  kable()
 ```
 :::
 
